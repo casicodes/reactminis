@@ -11,7 +11,7 @@ function Menu({ title }) {
               <span
                 className={`${
                   pizza.soldOut ? "text-red-600" : "text-green-600"
-                }  text-sm`}
+                }  text-xs uppercase tracking-widest`}
               >
                 {pizza.soldOut ? "Sold Out" : "Available"}
               </span>
