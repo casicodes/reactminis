@@ -10,10 +10,10 @@ function Stepper({ title }) {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
   function handleBack() {
-    if (step > 1) setStep(step - 1);
+    if (step > 1) setStep((s) => s - 1);
   }
   function handleNext() {
-    if (step < 3) setStep(step + 1);
+    if (step < 3) setStep((s) => s + 1);
   }
 
   return (
@@ -21,7 +21,7 @@ function Stepper({ title }) {
       <p className="uppercase text-xs tracking-wider text-gray-400">{title}</p>
       <button
         className="border py-2 px-3 rounded-full hover:bg-slate-50"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen((is) => !is)}
       >
         {isOpen ? "Hide" : "Show"}
       </button>
