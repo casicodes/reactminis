@@ -85,7 +85,9 @@ function Item({ item, toggleStatus }) {
   return (
     <li className="flex justify-between items-center py-2 first-of-type:pt-0">
       <span
-        className={`${item.packed ? "line-through" : ""} flex justify-between`}
+        className={`${
+          item.packed ? "line-through text-gray-400" : ""
+        } flex justify-between`}
       >
         {item.quantity} x {item.description}
       </span>{" "}
