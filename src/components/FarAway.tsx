@@ -52,6 +52,13 @@ function FarAway({ title }) {
           </button>
         </form>
       </div>
+      {items.length < 0 ? (
+        <div>
+          <p>Add and keep track of your items</p>
+        </div>
+      ) : (
+        ""
+      )}
       <div>
         <ul className="mt-4 divide-y">
           {items.map((item) => (
@@ -87,7 +94,7 @@ function Item({ item, toggleStatus }) {
         className="border py-2 px-2 rounded-md hover:bg-slate-50"
         onClick={() => toggleStatus(item.id)}
       >
-        {item.packed ? "Undo" : "Done"}
+        {item.packed ? "❌" : "✅"}
       </button>
     </li>
   );
