@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
 
 function Stepper({ title }) {
   const content = [
