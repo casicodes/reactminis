@@ -52,15 +52,14 @@ function FarAway({ title }) {
           </button>
         </form>
       </div>
-      {items.length < 0 ? (
-        <div>
-          <p>Add and keep track of your items</p>
-        </div>
+      {items.length === 0 ? (
+        <p className="text-gray-600 text-center">💼 No items added yet.</p>
       ) : (
         ""
       )}
+
       <div>
-        <ul className="mt-4 divide-y">
+        <ul className="mt-2 divide-y">
           {items.map((item) => (
             <Item item={item} key={item.id} toggleStatus={toggleStatus} />
           ))}
