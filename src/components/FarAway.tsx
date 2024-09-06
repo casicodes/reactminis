@@ -12,6 +12,11 @@ interface FarAwayProps {
   title: string;
 }
 
+interface ItemProps {
+  item: ItemType;
+  toggleStatus: (id: number) => void;
+}
+
 function FarAway({ title }: FarAwayProps) {
   const [items, setItems] = useState<Item[]>([]);
   const [description, setDescription] = useState("");
@@ -99,7 +104,7 @@ function FarAway({ title }: FarAwayProps) {
   );
 }
 
-function Item({ item, toggleStatus }) {
+function Item({ item, toggleStatus }: ItemProps) {
   return (
     <li className="flex justify-between items-center py-2 first-of-type:pt-0">
       <span
