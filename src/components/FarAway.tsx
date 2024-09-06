@@ -13,7 +13,7 @@ interface FarAwayProps {
 }
 
 interface ItemProps {
-  item: ItemType;
+  item: Item;
   toggleStatus: (id: number) => void;
 }
 
