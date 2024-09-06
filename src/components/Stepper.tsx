@@ -18,7 +18,7 @@ function Stepper({ title }: StepperProps) {
   }
 
   return (
-    <div className="flex flex-col gap-4 text-left">
+    <div className="flex flex-col gap-4 text-left bg-white p-4">
       <p className="uppercase text-xs tracking-wider text-gray-400">{title}</p>
       <button
         className="border py-2 px-3 rounded-full hover:bg-slate-50"
@@ -53,7 +53,7 @@ function Stepper({ title }: StepperProps) {
               </div>
             </div>
             <div className="flex items-center justify-center my-2 border rounded-lg min-h-40">
-              <span className="font-mono">{content[step - 1]}</span>
+              <span className="font-mono text-sm">{content[step - 1]}</span>
             </div>
             <div className="flex flex-row justify-between">
               <button
