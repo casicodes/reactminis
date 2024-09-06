@@ -6,7 +6,7 @@ import FarAway from "./components/FarAway";
 function App() {
   return (
     <div className="flex flex-col gap-14 max-w-[450px] mx-auto">
-      <FarAway title="Pack & track" />
+      <FarAway title="Mini app : Pack & track" />
       <Menu title="Conditional rendering" />
       <Stepper title="React hook in practise" />
     </div>

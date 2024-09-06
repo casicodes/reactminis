@@ -1,6 +1,8 @@
 import { useState } from "react";
-
-function Stepper({ title }) {
+interface StepperProps {
+  title: string;
+}
+function Stepper({ title }: StepperProps) {
   const content = [
     "Learn react, tailwind and framer motion 💎",
     "Apply for design engineer role 👨‍💻",

@@ -1,11 +1,23 @@
 import { useState } from "react";
+import { Check, X, Trash2, ChevronDown } from "lucide-react";
 
-function FarAway({ title }) {
-  const [items, setItems] = useState([]);
+interface Item {
+  id: number;
+  description: string;
+  packed: boolean;
+  quantity: number;
+}
+
+interface FarAwayProps {
+  title: string;
+}
+
+function FarAway({ title }: FarAwayProps) {
+  const [items, setItems] = useState<Item[]>([]);
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
-  function handleSubmit(e) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!description) return;
     const newItem = { id: Date.now(), description, packed: false, quantity };
@@ -14,7 +26,7 @@ function FarAway({ title }) {
     setDescription("");
   }
 
-  function toggleStatus(id) {
+  function toggleStatus(id: number) {
     setItems((items) =>
       items.map((item) =>
         item.id === id ? { ...item, packed: !item.packed } : item
@@ -27,19 +39,25 @@ function FarAway({ title }) {
       <p className="uppercase text-xs tracking-wider text-gray-400">{title}</p>
       <div>
         <form onSubmit={handleSubmit} className="flex justify-between gap-2">
-          <select
-            name="qty"
-            id="qty"
-            className="rounded-md border py-2 px-3 grow"
-            value={quantity}
-            onChange={(e) => setQuantity(Number(e.target.value))}
-          >
-            {Array.from({ length: 5 }, (_, i) => i + 1).map((num) => (
-              <option key={num} value={num}>
-                {num}
-              </option>
-            ))}
-          </select>
+          <div className="relative">
+            <select
+              name="qty"
+              id="qty"
+              className="rounded-md border py-2 pl-3 pr-8 grow appearance-none"
+              value={quantity}
+              onChange={(e) => setQuantity(Number(e.target.value))}
+            >
+              {Array.from({ length: 5 }, (_, i) => i + 1).map((num) => (
+                <option key={num} value={num}>
+                  {num}
+                </option>
+              ))}
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+              <ChevronDown size={16} />
+            </div>
+          </div>
+
           <input
             type="text"
             placeholder="Add item"
@@ -91,12 +109,17 @@ function Item({ item, toggleStatus }) {
       >
         {item.quantity} x {item.description}
       </span>{" "}
-      <button
-        className="border py-2 px-2 rounded-md hover:bg-slate-50"
-        onClick={() => toggleStatus(item.id)}
-      >
-        {item.packed ? "❌" : "✅"}
-      </button>
+      <span className="flex gap-2">
+        <button
+          className="border py-2 px-2 rounded-full hover:bg-slate-50"
+          onClick={() => toggleStatus(item.id)}
+        >
+          {item.packed ? <X size={20} /> : <Check size={20} />}
+        </button>
+        <button className="border py-2 px-2 rounded-full hover:bg-slate-50">
+          <Trash2 size={20} />
+        </button>
+      </span>
     </li>
   );
 }
