@@ -1,29 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Check, X, Trash2, ChevronDown } from "lucide-react";
 
-interface Item {
-  id: number;
-  description: string;
-  packed: boolean;
-  quantity: number;
-}
-
-interface FarAwayProps {
-  title: string;
-}
-
-interface ItemProps {
-  item: Item;
-  toggleStatus: (id: number) => void;
-  handleDelete: (id: number) => void;
-}
-
-function FarAway({ title }: FarAwayProps) {
-  const [items, setItems] = useState<Item[]>([]);
+function FarAway({ title }) {
+  const [items, setItems] = useState([]);
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e) {
     e.preventDefault();
     if (!description) return;
     const newItem = { id: Date.now(), description, packed: false, quantity };
@@ -32,7 +15,7 @@ function FarAway({ title }: FarAwayProps) {
     setDescription("");
   }
 
-  function toggleStatus(id: number) {
+  function toggleStatus(id) {
     setItems((items) =>
       items.map((item) =>
         item.id === id ? { ...item, packed: !item.packed } : item
@@ -40,7 +23,7 @@ function FarAway({ title }: FarAwayProps) {
     );
   }
 
-  function handleDelete(id: number) {
+  function handleDelete(id) {
     setItems((items) => items.filter((item) => item.id !== id));
   }
 
@@ -120,7 +103,7 @@ function FarAway({ title }: FarAwayProps) {
   );
 }
 
-function Item({ item, toggleStatus, handleDelete }: ItemProps) {
+function Item({ item, toggleStatus, handleDelete }) {
   return (
     <li className="flex justify-between items-center py-2 first-of-type:pt-0 font-mono">
       <span

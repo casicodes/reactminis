@@ -1,8 +1,6 @@
-import { useState } from "react";
-interface StepperProps {
-  title: string;
-}
-function Stepper({ title }: StepperProps) {
+import React, { useState } from "react";
+
+function Stepper({ title }) {
   const content = [
     "Learn react, tailwind and framer motion 💎",
     "Apply for design engineer role 👨‍💻",
@@ -10,9 +8,11 @@ function Stepper({ title }: StepperProps) {
   ];
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
+
   function handleBack() {
     if (step > 1) setStep((s) => s - 1);
   }
+
   function handleNext() {
     if (step < 3) setStep((s) => s + 1);
   }
@@ -75,4 +75,5 @@ function Stepper({ title }: StepperProps) {
     </div>
   );
 }
+
 export default Stepper;
