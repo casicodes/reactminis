@@ -18,7 +18,7 @@ function Stepper({ title }) {
   }
 
   return (
-    <div className="flex flex-col gap-4 text-left bg-white p-4">
+    <div className="flex flex-col gap-4 text-left bg-white p-4 rounded-md">
       <p className="uppercase text-xs tracking-wider text-gray-400">{title}</p>
       <button
         className="border py-2 px-3 rounded-full hover:bg-slate-50"
@@ -57,13 +57,13 @@ function Stepper({ title }) {
             </div>
             <div className="flex flex-row justify-between">
               <button
-                className="border py-2 px-3 rounded-full hover:bg-slate-50"
+                className="border py-2 px-4 rounded-full hover:bg-slate-50"
                 onClick={handleBack}
               >
                 Back
               </button>
               <button
-                className="border py-2 px-3 rounded-full hover:bg-slate-50"
+                className="border py-2 px-4 rounded-full hover:bg-slate-50"
                 onClick={handleNext}
               >
                 Next

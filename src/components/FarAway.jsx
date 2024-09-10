@@ -28,7 +28,7 @@ function FarAway({ title }) {
   }
 
   return (
-    <div className="flex flex-col gap-4 text-left bg-white p-4 rounded-sm">
+    <div className="flex flex-col gap-4 text-left bg-white p-4 rounded-md">
       <p className="uppercase text-xs tracking-wider text-gray-400">{title}</p>
       <div>
         <form onSubmit={handleSubmit} className="flex justify-between gap-2">
