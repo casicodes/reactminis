@@ -1,6 +1,6 @@
 import "./App.css";
-import Stepper from "./components/Stepper";
-import FarAway from "./components/FarAway";
+import Stepper from "./components/Stepper.jsx";
+import FarAway from "./components/FarAway.jsx";
 
 function App() {
   return (
