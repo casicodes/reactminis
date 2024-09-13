@@ -15,8 +15,12 @@
     "isolatedModules": true,
     "resolveJsonModule": true,
     "baseUrl": "src",
-    "checkJs": true,
-    "types": ["vite/client"]
+    "checkJs": false,
+    "types": ["vite/client"],
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@/*": ["*"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
