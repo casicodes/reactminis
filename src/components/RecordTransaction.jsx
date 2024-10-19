@@ -30,7 +30,7 @@ function RecordTransaction({ title }) {
         <ul>
           {transactions.map((transaction) => (
             <li className="flex flex-col gap-2 mb-4">
-              <span>{transaction.time}</span>
+              <span className="text-gray-500">{transaction.time}</span>
               <div className="flex flex-row items-center gap-1">
                 <span className="text-2xl">{transaction.icon}</span>
                 <span className="flex flex-col grow">
