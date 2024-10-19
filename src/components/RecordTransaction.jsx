@@ -29,30 +29,34 @@ function RecordTransaction({ title }) {
       <div>
         <ul>
           {transactions.map((transaction) => (
-            <li className="flex flex-col gap-2 mb-4">
-              <span className="text-gray-500">{transaction.time}</span>
-              <div className="flex flex-row items-center gap-1">
-                <span className="text-2xl">{transaction.icon}</span>
-                <span className="flex flex-col grow">
-                  <span className="capitalize font-bold">
-                    {transaction.category}
-                  </span>
-                </span>
-                <span
-                  className={`${
-                    transaction.expense ? "text-red-500" : "text-black"
-                  } text-lg`}
-                >
-                  {transaction.expense
-                    ? `-${transaction.amount}`
-                    : `+${transaction.amount}`}
-                </span>
-              </div>
-            </li>
+            <TransactionItem key={transaction.id} transaction={transaction} />
           ))}
         </ul>
       </div>
     </div>
+  );
+}
+
+function TransactionItem({ transaction }) {
+  return (
+    <li className="flex flex-col gap-2 mb-4">
+      <span className="text-gray-500">{transaction.time}</span>
+      <div className="flex flex-row items-center gap-1">
+        <span className="text-2xl">{transaction.icon}</span>
+        <span className="flex flex-col grow">
+          <span className="capitalize font-bold">{transaction.category}</span>
+        </span>
+        <span
+          className={`${
+            transaction.expense ? "text-red-500" : "text-black"
+          } text-lg`}
+        >
+          {transaction.expense
+            ? `-${transaction.amount}`
+            : `+${transaction.amount}`}
+        </span>
+      </div>
+    </li>
   );
 }
 export default RecordTransaction;
